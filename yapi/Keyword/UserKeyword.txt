@@ -1,0 +1,6 @@
+*** Test Cases ***
+
+*** Keywords ***
+login
+    username    54437621@qq.com
+    password    123456
