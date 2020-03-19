@@ -62,18 +62,3 @@ case3
     ${values}    Get Dictionary Values    ${responsedata}
     ${str}    Get From Dictionary    ${responsedata}    pass
     Delete All Sessions
-
-case4
-    Create Session    api    http://47.114.163.52:3000
-    &{data}=    Create Dictionary    email=54437621@qq.com    password=123456
-    &{headers}=    Create Dictionary    Content-Type=application/json
-    ${addr}    Post Request    api    /api/user/login    data=${data}    headers=${headers}
-    Comment    Should Be Equal As Strings    ${addr.status_code}    200
-    Log    ${addr.content}
-    Log    ${addr.json()}
-    ${responsedata}    To Json    ${addr.content}
-    ${keys}    Get Dictionary Keys    ${responsedata}
-    ${items}    Get Dictionary Items    ${responsedata}
-    ${values}    Get Dictionary Values    ${responsedata}
-    ${str}    Get From Dictionary    ${responsedata}    errcode
-    Delete All Sessions

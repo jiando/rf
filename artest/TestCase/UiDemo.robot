@@ -11,7 +11,6 @@ ${identify_code}    11    #验证码
 *** Keywords ***
 启动浏览器
     [Arguments]    ${url}
-    ${url}    Decrypt    ${url}
     open browser    ${url}    chrome
     maximize browser window
 
@@ -115,10 +114,10 @@ ${identify_code}    11    #验证码
 常江专用等待未出现重新打开页面
     [Arguments]    ${link}    ${element}
     FOR    ${num}    IN RANGE    5
-        Set_Browser_Implicit_Wait    10    #隐式等待
-        ${Not_Contain}    Run_keyword_and_return_status    Page Should Not Contain Element    xpath=${element}    #判断界面元素是否出现
-        Run_keyword_if    '${Not_Contain}'=='True'    Click Element    xpath=${link}    #如没有包含元素，则重新点击元素,例如定价管理二级菜单
-        Run_keyword_if    '${Not_Contain}'=='False'    Exit_for_loop    #实际上,这里默认会解绑iframe,如果前面有iframe嵌套,请重新指定iframe!
+    Set_Browser_Implicit_Wait    10    #隐式等待
+    ${Not_Contain}    Run_keyword_and_return_status    Page Should Not Contain Element    xpath=${element}    #判断界面元素是否出现
+    Run_keyword_if    '${Not_Contain}'=='True'    Click Element    xpath=${link}    #如没有包含元素，则重新点击元素,例如定价管理二级菜单
+    Run_keyword_if    '${Not_Contain}'=='False'    Exit_for_loop    #实际上,这里默认会解绑iframe,如果前面有iframe嵌套,请重新指定iframe!
 
 等待页面响应
     sleep    3
@@ -126,7 +125,7 @@ ${identify_code}    11    #验证码
 清除输入框内容
     [Arguments]    ${locator}    ${count}
     FOR    ${i}    IN RANGE    ${count}
-        Press Key    ${locator}    \\8
+    Press Key    ${locator}    \\8
 
 二三级菜单（js）
     [Arguments]    ${name}
@@ -143,6 +142,6 @@ ${identify_code}    11    #验证码
     [Arguments]    @{arg}
     sleep    3
     FOR    ${element}    IN    @{arg}
-        ${zhi}    Get Value    ${element}
-        log    ${zhi}
-        Should Be Empty    ${zhi}
+    ${zhi}    Get Value    ${element}
+    log    ${zhi}
+    Should Be Empty    ${zhi}
