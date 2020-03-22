@@ -1,14 +1,16 @@
 *** Settings ***
 Force Tags        suit Force
 Default Tags      suit def
-Resource          ../Keyword/UserKeyword.robot
+Resource          ../Keyword/SystemKeyword.robot
 Library           Selenium2Library
+Resource          ../Keyword/UserKeyword.robot
 
 *** Test Cases ***
 FirstAutoCase
     baidu    artest
 
 baidusearch
+    [Tags]    P1
     启动浏览器    http://www.baidu.com
     等待输入成功    input text    //*[@id='kw']    artest
     等待执行成功    click element    //*[@id='su']

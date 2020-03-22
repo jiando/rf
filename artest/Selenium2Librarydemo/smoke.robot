@@ -2,9 +2,9 @@
 Suite Setup       Open Default Browser
 Suite Teardown    Close Browser
 Test Setup        Navigate To Frontpage
-Resource          resources/${ENVIRONMENT}.robot
-Resource          resources/smoke_resources.robot
-Resource          ../resources/smoke_resources.robot
+Resource          ${ENVIRONMENT}.robot
+Resource          smoke_resources.robot
+Resource          common_resources.robot
 
 *** Variables ***
 ${robot_blog_name}    Automatic testing with Robot Framework pt. 3: Setting up a continuous integration system

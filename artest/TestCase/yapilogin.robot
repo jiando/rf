@@ -3,6 +3,7 @@ Library           RequestsLibrary
 Library           Collections
 Library           XML
 Resource          ../Keyword/UserKeyword.robot
+Resource          ../Keyword/SystemKeyword.robot
 
 *** Variables ***
 ${server}         http://47.114.163.52:3000
@@ -13,6 +14,7 @@ ${password}       123456
 
 *** Test Cases ***
 login
+    [Tags]    P1
     Create Session    api    ${server}
     &{data}=    Create Dictionary    email=${email}    password=${password}
     &{headers}=    Create Dictionary    Content-Type=application/json

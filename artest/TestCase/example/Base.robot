@@ -1,5 +1,5 @@
 *** Settings ***
-Resource          ../Keyword/UserKeyword.robot
+Resource          ../../Keyword/UserKeyword.robot
 
 *** Variables ***
 ${hi}             Robot Framework
@@ -19,4 +19,10 @@ for
     xunhuan    5
 
 list
-    liebiao
+    liebiao    1    2    3
+
+temp
+    [Template]    log
+    张三
+    李四
+    王五

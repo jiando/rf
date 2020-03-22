@@ -1,3 +1,6 @@
+*** Settings ***
+Library           Selenium2Library
+
 *** Variables ***
 ${english_link}    English
 ${chinese_link}    简体中文
